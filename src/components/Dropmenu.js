@@ -10,7 +10,7 @@ function Dropmenu() {
         <option value="India">Another Action</option>
         <option value="US">SomeThing Else Here</option>
         <option value="CA">Canada</option>
-        
+
       </select>
     </div>
   )
