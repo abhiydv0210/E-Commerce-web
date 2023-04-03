@@ -1,6 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import {
+    clear,
+    setFirstname,
+    setLastname,
+    setEmail,
+    setPassword,
+    setConfirmpassword
+} from './Store/reducer/Signup.slice';
+
 
 function SignUp() {
+    const firstname = useSelector((state) => state.SignupSlice.firstname);
+    const lastname = useSelector((state) => state.SignupSlice.lastname);
+    const email = useSelector((state) => state.SignupSlice.email);
+    const password = useSelector((state) => state.SignupSlice.password);
+    const confirmpassword = useSelector((state) => state.SignupSlice.confirmpassword);
+    const dispatch = useDispatch();
     return (
         <div>
             <div class="bg-grey-lighter min-h-screen flex flex-col rounded-lg">
@@ -15,43 +31,53 @@ function SignUp() {
                             <input
 
                                 type="text"
+                                value={firstname}
                                 class="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="FirstName"
-                                placeholder="First Name" />
+                                placeholder="First Name" 
+                                onChange={(e) => dispatch(setFirstname(e.target.value))}/>
                         </div>
                         <div>
                             <label className='text-lg'>Last Name</label>
                             <input
                                 type="text"
+                                value={lastname}
                                 class="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="fullname"
-                                placeholder="Last Name" />
+                                placeholder="Last Name" 
+                                onChange={(e) => dispatch(setLastname(e.target.value))}/>
                         </div>
                         <div>
                             <label className='text-lg'>Email</label>
                             <input
                                 type="text"
+                                value={email}
                                 class="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="email"
-                                placeholder="Email" />
+                                placeholder="Email"
+                                onChange={(e) => dispatch(setEmail(e.target.value))} />
                         </div>
                         <div>
                             <label className='text-lg'>Password</label>
 
                             <input
                                 type="password"
+                                value={password}
                                 class="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="password"
-                                placeholder="Password" />
+                                placeholder="Password" 
+                                onChange={(e) => dispatch(setPassword(e.target.value))}/>
                         </div>
                         <div>
                             <label className='text-lg'>Confirm Password</label>
                             <input
 
                                 type="password"
+                                value={confirmpassword}
                                 class="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="confirm_password"
-                                placeholder="Confirm Password" />
+                                placeholder="Confirm Password"
+                                onChange={(e) => dispatch(setConfirmpassword(e.target.value))} />
                         </div>
 
 

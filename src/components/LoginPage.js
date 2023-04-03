@@ -1,6 +1,18 @@
-import React from 'react'
+import React from 'react';
+
+import { useDispatch, useSelector } from "react-redux";
+import {
+    clear,
+    setEmail,
+    setPassword
+} from './Store/reducer/Login.slice';
 
 function LoginPage() {
+    const email = useSelector((state) => state.LoginSlice.email);
+    const password = useSelector((state) => state.LoginSlice.password);
+    const dispatch = useDispatch();
+
+
     return (
         <div>
 
@@ -18,11 +30,11 @@ function LoginPage() {
                         <form class="space-y-4 md:space-y-6" action="#">
                             <div>
                                 <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-black text-xl">Your Email</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your Email here" required="" />
+                                <input type="email" name="email" value={email} id="email" class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your Email here" required="" onChange={(e) => dispatch(setEmail(e.target.value))} />
                             </div>
-                            <div>
+                            <div>2
                                 <label for="password" class="block mb-2 font-medium text-gray-900 dark:text-black text-xl">Password</label>
-                                <input type="password" name="password" id="password" placeholder="Enter your Password here" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+                                <input type="password" name="password" value={password} id="password" placeholder="Enter your Password here" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" onChange={(e) => dispatch(setPassword(e.target.value))} />
                             </div>
                             <div class="flex items-center justify-between">
                                 <div class="flex items-start">
