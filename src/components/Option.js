@@ -1,9 +1,9 @@
-import React,{useContext} from 'react';
-import { userContext } from '../App';
+import React from 'react';
+// import { userContext } from '../App';
 
 
 function Option() {
-  const setCommerce = useContext(userContext);
+  // const setCommerce = useContext(userContext);
     const {dispatch} = setCommerce;
   
   return (

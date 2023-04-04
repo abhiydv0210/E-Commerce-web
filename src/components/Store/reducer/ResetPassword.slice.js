@@ -28,6 +28,6 @@ export const ResetPasswordSlice = createSlice({
     },
 })
 
-export const { password,confirmpassword,clear } = ResetPasswordSlice.actions;
+export const { setPassword,setConfirmPassword,clear } = ResetPasswordSlice.actions;
 
 export default ResetPasswordSlice.reducer; 

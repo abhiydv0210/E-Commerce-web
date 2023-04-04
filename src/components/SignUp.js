@@ -11,11 +11,11 @@ import {
 
 
 function SignUp() {
-    const firstname = useSelector((state) => state.SignupSlice.firstname);
-    const lastname = useSelector((state) => state.SignupSlice.lastname);
-    const email = useSelector((state) => state.SignupSlice.email);
-    const password = useSelector((state) => state.SignupSlice.password);
-    const confirmpassword = useSelector((state) => state.SignupSlice.confirmpassword);
+    const firstname = useSelector((state) => state?.SignupSlice?.firstname);
+    const lastname = useSelector((state) => state?.SignupSlice?.lastname);
+    const email = useSelector((state) => state?.SignupSlice?.email);
+    const password = useSelector((state) => state?.SignupSlice?.password);
+    const confirmpassword = useSelector((state) => state?.SignupSlice?.confirmpassword);
     const dispatch = useDispatch();
     return (
         <div>
