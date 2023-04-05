@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import SignUp from '../components/SignUp';
 import {
-    clear,
     setEmail,
     setPassword
 } from '../components/Store/reducer/Login.slice';
+import ForgetPassword from '../components/ForgetPassword';
 
 const SingIn = ({ handleSignIn,setLogin }) => {
     const email = useSelector((state) => state?.LoginSlice?.email);
     const password = useSelector((state) => state?.LoginSlice?.password);
     const dispatch = useDispatch();
+    const[Forget, setForgetPassword]=useState(false)
     function handleClose() {
         setLogin(false);
+    }
+    function handlepassword() {
+        setForgetPassword(!Forget);
+        
     }
     return (<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
@@ -45,7 +50,13 @@ const SingIn = ({ handleSignIn,setLogin }) => {
                                 <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
                             </div>
                         </div>
-                        <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                        <Link to='/ForgetPassword'>
+                        <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500" onClick={handlepassword}>Forgot password?</a>
+                        </Link>
+                        
+                    </div>
+                    <div>
+                    {Forget? <ForgetPassword Forget={Forget} setForgetPassword={setForgetPassword} />:''}
                     </div>
                     <button type="submit" class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg  px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 text-xl">Login</button>
                     <div>
@@ -60,6 +71,7 @@ const SingIn = ({ handleSignIn,setLogin }) => {
             </div>
         </div>
     </div>)
+
 }
 
 
@@ -73,7 +85,7 @@ function LoginPage({setLogin}) {
     }
     console.log("heu");
 
-    return signin ? <SignUp signin={signin} setSignIn={setSignIn} /> : <SingIn handleSignIn={handleSignIn} setLogin={setLogin} />
+    return signin ? <SignUp signin={signin} setSignIn={setSignIn}  /> : <SingIn handleSignIn={handleSignIn} setLogin={setLogin} />
 }
 
 export default LoginPage

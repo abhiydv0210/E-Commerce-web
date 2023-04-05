@@ -4,20 +4,16 @@ import Dropmenu from '../Dropmenu'
 const Header = () => {
   return (
     <div>
-      <header class="text-black body-font ">
+      <header class="text-black body-font  ">
                     <div class=" container mx-auto flex flex-wrap p-5 flex-col md:flex-row justify-center items-center">
                         <div class='flex '>
                             <a class="mr-5 flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
 
                                 <span><i class="fa-solid fa-bars text-3xl" ></i></span>
                             </a>
-                           
-
-
-
                         </div>
                         <Dropmenu />
-                        <div class='flex'>
+                        <div class='flex '>
                             <input
                                 type="search"
                                 class="relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-black outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200  dark:placeholder:text-neutral-200 "
@@ -44,9 +40,9 @@ const Header = () => {
                         </div>
                         <div class="flex">
 
-                            <a class="mr-5  hover:text-gray-900   text-slate-50 ml-5 border text-xl  block  bg-slate-800  p-2  border-gray-300 rounded-lg  focus:ring-blue-500 focus:border-blue-500"><i class="fa-solid fa-flag-usa mr-2"></i>English</a>
-                            <a class="mr-5 text-slate-50 text-2xl  hover:text-gray-900"><i class="fa-solid fa-cart-plus mr-1"></i>CART</a>
-                            <a class="mr-5 text-slate-50 text-2xl hover:text-gray-900"><i class="fa-solid fa-user mr-1"></i>CART</a>
+                            <a class="mr-5  hover:text-red-500   text-slate-50 ml-5 border text-xl  block  bg-slate-800  p-2  border-gray-300 rounded-lg  focus:ring-blue-500 focus:border-blue-500"><i class="fa-solid fa-flag-usa mr-2"></i>English</a>
+                            <a class="mr-5 text-black text-2xl  hover:text-gray-900"><i class="fa-solid fa-cart-plus mr-1"></i>CART</a>
+                            <a class="mr-5 text-black text-2xl hover:text-gray-900"><i class="fa-solid fa-user mr-1"></i>CART</a>
                         </div>
 
 

@@ -10,13 +10,18 @@ import {
 } from './Store/reducer/Signup.slice';
 
 
-function SignUp() {
+function SignUp({setSignIn}) {
     const firstname = useSelector((state) => state?.SignupSlice?.firstname);
     const lastname = useSelector((state) => state?.SignupSlice?.lastname);
     const email = useSelector((state) => state?.SignupSlice?.email);
     const password = useSelector((state) => state?.SignupSlice?.password);
     const confirmpassword = useSelector((state) => state?.SignupSlice?.confirmpassword);
     const dispatch = useDispatch();
+    function HandleSignupclose() {
+       setSignIn (false);
+       
+    }
+    
     return (
         <div>
             <div class="bg-grey-lighter min-h-screen flex flex-col rounded-lg">
@@ -24,7 +29,7 @@ function SignUp() {
                     <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                         <div className='flex md:justify-between'>
                             <h1 class="mb-8 text-3xl text-center">Sign up</h1>
-                            <h1><i class="fa-solid fa-xmark text-3xl"></i></h1>
+                            <h1><i class="fa-solid fa-xmark text-3xl " onClick={HandleSignupclose}></i></h1>
                         </div>
                         <div>
                             <label className='text-lg'>First Name</label>
@@ -101,9 +106,9 @@ function SignUp() {
 
 
                         <div class="text-grey-dark mt-6">
-                            Already have an account?
+                            
 
-                            <a class="no-underline border-b border-blue text-blue" href="../login/">
+                            <a class="no-underline border-b border-blue text-blue flex justify-center text-xl text-red-500" href="../login/">
                                 Log in
                             </a>.
                         </div>
