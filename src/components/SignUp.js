@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
+import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import {
-    clear,
+    
     setFirstname,
     setLastname,
     setEmail,
@@ -17,6 +18,28 @@ function SignUp({setSignIn}) {
     const password = useSelector((state) => state?.SignupSlice?.password);
     const confirmpassword = useSelector((state) => state?.SignupSlice?.confirmpassword);
     const dispatch = useDispatch();
+    const[sign,setSign]=useState([])
+   
+    const fetchData = async () => {
+        try {
+            const response = await axios.post('http://192.168.29.145:3001/api/user/register',
+            {firstname:'',
+            lastname:'',
+            email:'',
+            password:'',
+            confirmpassword:''
+
+        }).then(res => {
+            const sign = res.data;
+            this.setState({ sign });
+          })
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
     function HandleSignupclose() {
        setSignIn (false);
        
@@ -55,7 +78,7 @@ function SignUp({setSignIn}) {
                         <div>
                             <label className='text-lg'>Email</label>
                             <input
-                                type="text"
+                                type="email"
                                 value={email}
                                 class="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="email"
@@ -101,7 +124,7 @@ function SignUp({setSignIn}) {
                         </div>
                         <button
                             type="submit"
-                            class="w-full text-center py-3 text-xl rounded bg-green bg-blue-800 text-slate-50 hover:bg-green-dark focus:outline-none my-1"
+                            class="w-full text-center py-3 text-xl rounded bg-green bg-blue-800 text-slate-50 hover:bg-green-dark focus:outline-none my-1" onSubmit={fetchData}
                         >Create Account</button>
 
 

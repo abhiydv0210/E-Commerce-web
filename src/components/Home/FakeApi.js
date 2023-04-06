@@ -46,7 +46,7 @@ function FakeApi() {
               <p className='text-2xl text-center'>${item?.price}</p>
               <p className='text-2xl text-center'>{item?.Rating}</p>
               <div className='flex justify-end mb-[3%] mr-[3%] '>
-              <button  class="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded text-center">
+              <button  class="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 text-2xl rounded text-center">
               <Link to={'Product/' + item?.id}>
                 Buy now
                 </Link>
