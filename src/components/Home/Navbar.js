@@ -8,6 +8,8 @@ import LoginPage from '../../pages/LoginPage';
 
 import Footer from './Footer';
 import Header from './Header';
+import BuyNow from '../BuyNow';
+import Card from '../Card';
 
 
 function Navbar() {
@@ -66,6 +68,7 @@ function Navbar() {
             <div>  
                 <FakeApi/>
                 </div>
+                
             
             
            
