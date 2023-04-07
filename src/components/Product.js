@@ -1,5 +1,5 @@
 
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import BuyNow from './BuyNow';
 import Card from './Card';
@@ -10,18 +10,22 @@ import { useNavigate } from "react-router-dom";
 function Product() {
     const params = useParams();
     const [productData, setProductData] = useState({});
-    const [Buynow ,setBuyNow]=useState(false)
-    const [card, setCard] =useState(false)
+    const [Buynow, setBuyNow] = useState(false)
+    const [card, setCard] = useState(false)
+    const [additem, setAddItem] = useState([]);
+    
+      
+  
 
     let navigate = useNavigate();
 
-    
+
     const id = params?.productID
 
 
     React.useEffect(() => {
         const fetchData = async () => {
-            fetch(`https://fakestoreapi.com/products/${id}`)
+            fetch(`http://192.168.29.145:3001/api/product/${id}`)
                 .then(res => res.json())
                 .then(data => setProductData(data))
                 .catch(err => console.log(err))
@@ -30,34 +34,35 @@ function Product() {
     }, []);
 
 
-    
+
 
     console.log(productData);
     function handlebuynow() {
         setBuyNow(true);
-        
+
     }
     function handlecard() {
         setCard(true);
+        localStorage.setItem('id',productData?.id);
 
         navigate("/Product/card");
-  
+
     }
 
-
+console.log(productData,'........')
 
     return (
-        
+
         <div>
-            {Buynow?<BuyNow/>: 
-            <section class="text-gray-600 body-font overflow-hidden">
-                <div class="container px-5 py-24 mx-auto">
-                    <div class="lg:w-3/4 ml-[1%] mx-auto flex flex-wrap">
-                        <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={productData?.image}/>
-                            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6  lg:mt-0">
-                            
-                                <h1 class="text-gray-900 text-3xl title-font uppercase font-medium mb-1">{productData.category}</h1>
-                                <h1 class="text-gray-900 text-xl title-font uppercase font-medium mb-1">{productData.title}</h1>
+            {Buynow ? <BuyNow /> :
+                <section class="text-gray-600 body-font overflow-hidden">
+                    <div class="container px-5 py-24 mx-auto">
+                        <div class="lg:w-3/4 ml-[1%] mx-auto flex flex-wrap">
+                            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-[2%] h-[5%] object-cover object-center rounded" src={productData?.imageurl} />
+                            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6  lg:mt-0 mt-[20%]">
+
+                                <h1 class="text-gray-900 text-3xl title-font uppercase font-medium mb-1">{productData?.description}</h1>
+                                {/* <h1 class="text-gray-900 text-xl title-font uppercase font-medium mb-1">{productData.title}</h1> */}
                                 <div class="flex mb-4">
                                     <span class="flex items-center">
                                         <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
@@ -75,7 +80,7 @@ function Product() {
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
                                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                         </svg>
-                                    
+
                                     </span>
                                     <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
                                         <a class="text-gray-500">
@@ -95,7 +100,7 @@ function Product() {
                                         </a>
                                     </span>
                                 </div>
-                                <p class="leading-relaxed">{productData.description}</p>
+                                {/* <p class="leading-relaxed">{productData.description}</p> */}
                                 <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                                     <div class="flex">
                                         <span class="mr-3">Color</span>
@@ -120,32 +125,34 @@ function Product() {
                                         </div>
                                     </div>
                                 </div>
-                                <div >
-                                    <span class="title-font font-medium text-2xl text-gray-900">Price: ${productData.price}</span>
-                                    
-                                    
+                                <div>
+                                    <span class="title-font mr-[2%] font-medium text-2xl text-gray-900">Price: ${productData?.price?.actualPrice}</span>
+                                    <span class="title-font font-medium text-2xl text-gray-900">Price: ${productData?.price?.discountPercentage}</span>
+
+
+
                                 </div>
-                                <div className='flex mt-[20%]'>
-                                <button class="flex  text-white bg-red-500 border-0 mr-[3%] py-2 px-6 focus:outline-none hover:bg-red-900 rounded" onClick={handlebuynow}>BUY NOW</button>
-                               
-                                <button class="flex  text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-900 rounded" onClick={handlecard}>ADD TO CARD</button>
+                                <div className='flex mt-[40%]'>
+                                    <button class="flex  text-white bg-red-500 border-0 mr-[3%] py-2 px-6 focus:outline-none hover:bg-red-900 rounded" onClick={handlebuynow}>BUY NOW</button>
+
+                                    <button class="flex  text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-900 rounded" onClick={handlecard}>ADD TO CARD</button>
                                 </div>
                                 {/* {Buynow? <BuyNow/>:''} */}
-                                
+
                             </div>
+                        </div>
                     </div>
-                </div>
-               
-            </section>}
+
+                </section>}
 
 
 
-            
 
 
 
-           
-            
+
+
+
         </div>
     )
 }
