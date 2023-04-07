@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     password: "",
     email: "",
-    confirmpassword: ""
+    confirmPassword: ""
 }
 export const SignupSlice = createSlice({
-    name: 'user',
+    name: 'signup',
     initialState,
     reducers: {
         setFirstname: (state, action) => {
-            state.firstname = action.payload;
+            state.firstName = action.payload;
         },
         setLastname: (state, action) => {
-            state.lastname = action.payload;
+            state.lastName = action.payload;
         },
         setPassword: (state, action) => {
             state.password = action.payload;
@@ -24,14 +24,14 @@ export const SignupSlice = createSlice({
             state.email = action.payload;
         },
         setConfirmpassword: (state, action) => {
-            state.confirmpassword = action.payload;
+            state.confirmPassword = action.payload;
         },
         clear: (state) => {
-            state.firstname = ""
-            state.lastname = ""
+            state.firstName = ""
+            state.lastName = ""
             state.email = ""
             state.password = ""
-            state.confirmpassword = ""
+            state.confirmPassword = ""
             
         }
     },

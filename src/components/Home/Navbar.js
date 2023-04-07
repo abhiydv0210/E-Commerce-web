@@ -67,6 +67,7 @@ function Navbar() {
             </div>
             <div>  
                 <FakeApi/>
+                {/* <Card/> */}
                 </div>
                 
             

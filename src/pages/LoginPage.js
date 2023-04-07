@@ -14,19 +14,29 @@ const SingIn = ({ handleSignIn, setLogin }) => {
     const password = useSelector((state) => state?.LoginSlice?.password);
     const dispatch = useDispatch();
     const [Forget, setForgetPassword] = useState(false)
-    const [Signin, setSignin] = useState()
+    const [Signin, setSignIn] = useState()
 
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.post('http://localhost:3000/api/user/login',
-            {email:'',
-            password:''});
-            setSignin(response.data);
-
-        } catch (error) {
-            console.error(error);
-        }
+    const fetchLogin = async () => {
+        const data = {
+            email,password
+          };
+          
+          const config = {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          };
+          
+         await  axios.post('http://192.168.29.145:3001/api/user/login', data, config)
+            .then(response => {
+              setSignIn(response.data)
+              console.log(response, '==============>');
+            })
+            .catch(error => {
+                console.error(error)
+            })
+        
 
     }
 
@@ -52,7 +62,7 @@ const SingIn = ({ handleSignIn, setLogin }) => {
 
 
                     </div>
-                    <form class="space-y-4 md:space-y-6" onSubmit={fetchData} action="#">
+                    <form class="space-y-4 md:space-y-6" onSubmit={e=>e.preventDefault()} action="#">
                         <div>
                             <label for="email" class="block mb-2  font-medium text-gray-900 dark:text-black text-xl">Your Email</label>
                             <input type="email" name="email" value={email} id="email" class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your Email here" required="" onChange={(e) => dispatch(setEmail(e.target.value))} />
@@ -78,7 +88,7 @@ const SingIn = ({ handleSignIn, setLogin }) => {
                         <div>
                             {Forget ? <ForgetPassword Forget={Forget} setForgetPassword={setForgetPassword} /> : ''}
                         </div>
-                        <button type="submit" class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg  px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 text-xl">Login</button>
+                        <button type="submit" class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg  px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 text-xl" onClick={fetchLogin}>Login</button>
                         <div>
                             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                                 <Link to='/Signin'>
