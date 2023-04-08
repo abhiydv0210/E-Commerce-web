@@ -53,7 +53,7 @@ function SignUp({ setSignIn }) {
                 <div class="bg-grey-lighter min-h-screen flex flex-col rounded-lg">
                     <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                         <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                            <div className='flex md:justify-between'>
+                            <div className='flex sm:flex sm:justify-between md:justify-between'>
                                 <h1 class="mb-8 text-3xl text-center">Sign up</h1>
                                 <h1><i class="fa-solid fa-xmark text-3xl " onClick={HandleSignupclose}></i></h1>
                             </div>
