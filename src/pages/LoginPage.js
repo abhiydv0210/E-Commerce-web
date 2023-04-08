@@ -51,11 +51,11 @@ const SingIn = ({ handleSignIn, setLogin }) => {
 
     }
     return (
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="flex flex-col sm:w-[80%] items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
-            <div class="w-[35%] bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <div className=' flex md:justify-between'>
+            <div class=" bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+                <div class="p-6 space-y-4 md:space-y-6 ">
+                    <div className=' flex sm:flex sm:justify-between md:justify-between'>
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-black">
                             Log In</h1>
                         <h1><i class="fa-solid fa-xmark text-3xl" onClick={handleClose}></i></h1>
