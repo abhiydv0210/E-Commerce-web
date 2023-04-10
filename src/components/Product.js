@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import BuyNow from './BuyNow';
-import Card from './Card';
+// import Card from './Card';
 import { useNavigate } from "react-router-dom";
 
 
@@ -13,9 +13,10 @@ function Product() {
     const [Buynow, setBuyNow] = useState(false)
     const [card, setCard] = useState(false)
     const [additem, setAddItem] = useState([]);
-    
-      
-  
+    const cartData = JSON.parse(localStorage.getItem('id')) || [];
+
+
+
 
     let navigate = useNavigate();
 
@@ -25,7 +26,7 @@ function Product() {
 
     React.useEffect(() => {
         const fetchData = async () => {
-            fetch(`http://192.168.29.145:3001/api/product/${id}`)
+            fetch(`http://192.168.29.145:3002/api/product/${id}`)
                 .then(res => res.json())
                 .then(data => setProductData(data))
                 .catch(err => console.log(err))
@@ -43,13 +44,13 @@ function Product() {
     }
     function handlecard() {
         setCard(true);
-        localStorage.setItem('id',productData?.id);
-
-        navigate("/Product/card");
+        cartData.push(productData?.id);
+        localStorage.setItem('id', JSON.stringify(cartData));
+        navigate("/card");
 
     }
 
-console.log(productData,'........')
+    console.log(productData?.id, '........')
 
     return (
 

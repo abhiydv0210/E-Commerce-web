@@ -1,7 +1,17 @@
 import React from 'react'
-import Dropmenu from '../Dropmenu'
+import Dropmenu from '../Dropmenu';
+import { useNavigate } from 'react-router-dom';
+
 
 const Header = () => {
+    let navigate = useNavigate();
+    function handlecart() {
+       
+        
+        navigate("/card");
+
+    }
+
   return (
     <div>
       <header class="text-black body-font">
@@ -42,7 +52,7 @@ const Header = () => {
                         <div class="sm:flex ">
 
                             <a class="mr-5  hover:text-red-500  sm:text-sm sm:flex sm:mt-[1%] text-slate-50 ml-5 border text-xl  block  bg-slate-800  p-2  border-gray-300 rounded-lg  focus:ring-blue-500 focus:border-blue-500"><i class="fa-solid fa-flag-usa mr-2 sm:text-sm"></i>English</a>
-                            <a class="mr-5 text-black sm:text-sm text-2xl sm:flex sm:mt-[3%]  hover:text-gray-900"><i class="fa-solid fa-cart-plus mr-1"></i>CART</a>
+                            <a class="mr-5 text-black sm:text-sm text-2xl sm:flex sm:mt-[3%]  hover:text-gray-900" onClick={handlecart}><i class="fa-solid fa-cart-plus mr-1" ></i>CART</a>
                             <a class="mr-5 text-black text-2xl sm:text-sm sm:flex sm:mt-[3%]  hover:text-gray-900"><i class="fa-solid fa-user mr-1"></i>CART</a>
                         </div>
 

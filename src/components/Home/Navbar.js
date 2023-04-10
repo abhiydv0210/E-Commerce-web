@@ -22,13 +22,13 @@ function Navbar() {
     console.log(login, ">>>>")
     return (
         <>
-            <div className='bg-cover' style={{ backgroundImage: `url(${img})` }}>
+            <div className='bg-cover sm:w-full' style={{ backgroundImage: `url(${img})` }}>
 
 
                 <header class="text-slate-50 body-font ">
                     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
 
-                        <nav class="md:ml-auto md:mr-auto sm:text-center sm:text-xs  flex flex-wrap items-center text-xl  justify-center bg-black h-20 w-[100%] sm:w-[90%] md:w-[50%] lg:w-[60%]   border  rounded-lg  focus:ring-blue-500 focus:border-blue-500">
+                        <nav class="md:ml-auto md:mr-auto sm:text-center sm:text-xs  flex flex-wrap items-center text-xl  justify-center bg-black h-20 w-[100%] sm:w-[90%] md:w-[50%] lg:w-[80%] lg:text-lg  border  rounded-lg  focus:ring-blue-500 focus:border-blue-500">
                             <a class="mr-5 hover:text-red-500">Best Seller</a>
                             <a class="mr-5 hover:text-red-500">Gift Ideas</a>
                             <a class="mr-5 hover:text-red-500">New Releases</a>

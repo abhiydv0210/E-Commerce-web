@@ -16,7 +16,7 @@ function FakeApi() {
 
   useEffect(() => {
     
-         axios.get('http://192.168.29.145:3001/api/product')
+         axios.get('http://192.168.29.145:3002/api/product')
         .then(response => {
           setData(response?.data)
           console.log(response, '==============>');
@@ -52,14 +52,14 @@ function FakeApi() {
               {/* <p className='text-2xl text-center'>{item?.actualPrice}</p> */}
               {/* <p className='text-2xl text-center'>{item?.discountPercentage}</p> */}
               <div className='flex justify-end mb-[3%] mr-[3%] '>
-              <button  class="bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 text-2xl rounded text-center">
+              <button  class="bg-yellow-500 hover:bg-yellow-500 text-white font-bold py-2 px-4 text-2xl rounded text-center">
               <Link to={'Product/' + item?.id}>
                 Buy now
                 </Link>
               </button>
             </div>
             </div>
-          );
+          )
         })}
       </div>
 
