@@ -24,7 +24,7 @@ function AllRoutes() {
                     <Route path='/signin' element={<SignUp />} />
                     <Route path="/dummy" element={<Dummy />} />
                     <Route path="/Product/:productID" element={<Product/>} />
-                    <Route path="/Product/card" element={<Card/>} />
+                    <Route path="/card" element={<Card/>} />
                     <Route path="/Product/buynow" element={<BuyNow/>} />
                    
                     {/* <Route path="/dummy/:id" element={<FakeApi/>} /> */}

@@ -17,7 +17,7 @@ const Footer = () => {
                     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
 
 
-                        <nav class="md:ml-auto md:mr-auto sm:flex-col sm:text-center flex flex-wrap items-center text-base justify-center bg-black  focus:ring-blue-500 focus:border-blue-500">
+                        <nav class="md:ml-auto md:mr-auto sm:flex-col sm:text-center lg:flex lg:flex-wrap items-center text-base justify-center bg-black  focus:ring-blue-500 focus:border-blue-500">
 
                             <a class="mr-2 hover:text-red-500">Best Seller</a>
                             <a class="mr-2 hover:text-red-500 ">Gift Ideas</a>
@@ -27,8 +27,8 @@ const Footer = () => {
                         </nav>
 
                     </div>
-                    <h6 className='text-lg sm:text-xs text-slate-50 flex justify-center item-center mb-[10%] sm:text-center  hover:text-red-500 '>Helpline Number : +91-1800-1200-1200</h6>
-                    <h6 className='text-lg sm:text-xs text-slate-50 flex justify-center item-center sm:text-center'>@1045 All Rights Rrvd. By HTML design</h6>
+                    <h6 className='text-lg sm:text-xs lg:text-lg text-slate-50 flex justify-center item-center mb-[10%] sm:text-center  hover:text-red-500 '>Helpline Number : +91-1800-1200-1200</h6>
+                    <h6 className='text-lg sm:text-xs lg:text-lg text-slate-50 flex justify-center item-center sm:text-center'>@1045 All Rights Rrvd. By HTML design</h6>
                 </header>
             </div>
         </div>
